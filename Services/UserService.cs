@@ -22,9 +22,8 @@ namespace UsersManagement.Services
         }
 
         public List<User> Get()
-        {       
-            var temp = _users.Find(user => true);
-            return temp.ToList();
+        {                   
+            return _users.Find(user => true).ToList();
         }
 
         public User Get(string id)

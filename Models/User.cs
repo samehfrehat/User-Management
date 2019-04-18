@@ -28,7 +28,7 @@ namespace UsersManagement.Models
         public string email { get; set; }
 
         [BsonElement("address")]
-        public IList<Address> address { get; set; }
+        public Address address { get; set; }
 
         [BsonElement("phone")]
         public string phone { get; set; }
@@ -37,7 +37,7 @@ namespace UsersManagement.Models
         public string website { get; set; }
 
         [BsonElement("company")]
-        public IList<Company> company { get; set; }
+        public Company company { get; set; }
 
 
     }
@@ -56,7 +56,8 @@ namespace UsersManagement.Models
         [BsonElement("zipcode")]
         public string zipcode { get; set; }
 
-        public IList<Geo> geo { get; set; }
+        [BsonElement("geo")]
+        public Geo geo { get; set; }
     }
 
     public class Geo

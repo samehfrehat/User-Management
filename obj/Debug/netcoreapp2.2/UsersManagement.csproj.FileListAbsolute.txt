@@ -1,0 +1,13 @@
+C:\Users\Sameh\source\repos\UsersManagement\UsersManagement\obj\Debug\netcoreapp2.2\UsersManagement.csproj.CoreCompileInputs.cache
+C:\Users\Sameh\source\repos\UsersManagement\UsersManagement\obj\Debug\netcoreapp2.2\UsersManagement.RazorAssemblyInfo.cache
+C:\Users\Sameh\source\repos\UsersManagement\UsersManagement\obj\Debug\netcoreapp2.2\UsersManagement.RazorAssemblyInfo.cs
+C:\Users\Sameh\source\repos\UsersManagement\UsersManagement\obj\Debug\netcoreapp2.2\UsersManagement.AssemblyInfoInputs.cache
+C:\Users\Sameh\source\repos\UsersManagement\UsersManagement\obj\Debug\netcoreapp2.2\UsersManagement.AssemblyInfo.cs
+C:\Users\Sameh\source\repos\UsersManagement\UsersManagement\bin\Debug\netcoreapp2.2\UsersManagement.deps.json
+C:\Users\Sameh\source\repos\UsersManagement\UsersManagement\bin\Debug\netcoreapp2.2\UsersManagement.runtimeconfig.json
+C:\Users\Sameh\source\repos\UsersManagement\UsersManagement\bin\Debug\netcoreapp2.2\UsersManagement.runtimeconfig.dev.json
+C:\Users\Sameh\source\repos\UsersManagement\UsersManagement\bin\Debug\netcoreapp2.2\UsersManagement.dll
+C:\Users\Sameh\source\repos\UsersManagement\UsersManagement\obj\Debug\netcoreapp2.2\UsersManagement.RazorTargetAssemblyInfo.cache
+C:\Users\Sameh\source\repos\UsersManagement\UsersManagement\bin\Debug\netcoreapp2.2\UsersManagement.pdb
+C:\Users\Sameh\source\repos\UsersManagement\UsersManagement\obj\Debug\netcoreapp2.2\UsersManagement.dll
+C:\Users\Sameh\source\repos\UsersManagement\UsersManagement\obj\Debug\netcoreapp2.2\UsersManagement.pdb

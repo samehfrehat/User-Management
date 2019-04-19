@@ -33,8 +33,7 @@ namespace UsersManagement.Models
 
         [BsonElement("company")]
         public Company company { get; set; }
-
-
+        
     }
 
     public class Address

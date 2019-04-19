@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using UsersManagement.Models;
 using UsersManagement.Services;
-using Microsoft.AspNetCore.Mvc;
 
 namespace UsersManagement.Controllers
 {
@@ -11,13 +11,13 @@ namespace UsersManagement.Controllers
     {
         //create the  user service 
         private readonly UserService _userService;
-
+        
         //initialize the _userService within constructor  
         public UsersController(UserService userService)
         {
-            _userService = userService;
+            _userService = userService;            
         }
-
+        
         [HttpGet] //returns all the users /api/users
         public ActionResult<List<User>> Get()
         {

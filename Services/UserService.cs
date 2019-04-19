@@ -1,22 +1,34 @@
-﻿using System;
+﻿using Microsoft.Extensions.Configuration;
+using MongoDB.Driver;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using UsersManagement.Models;
-using Microsoft.Extensions.Configuration;
-using MongoDB.Driver;
 
 namespace UsersManagement.Services
 {
     public class UserService
     {
-        private readonly IMongoCollection<User> _users;
+        private  readonly IMongoCollection<User> _users;
 
         public UserService(IConfiguration config)
         {
             var client = new MongoClient(config.GetConnectionString("UsersManagementDb"));
             var database = client.GetDatabase("UsersManagementDb");
             _users = database.GetCollection<User>("Users");
+           
+        }
+        
+        public void insertManyUsers(IEnumerable<User> users)
+        {
+            try
+            {
+                _users.InsertManyAsync(users);
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
         }
 
         public List<User> Get()
@@ -26,7 +38,7 @@ namespace UsersManagement.Services
 
         public User Get(string id)
         {
-            return _users.Find<User>(user => user.Id == id).FirstOrDefault();
+            return _users.Find(user => user.Id == id).FirstOrDefault();
         }
 
         public User Create(User user)
@@ -50,4 +62,5 @@ namespace UsersManagement.Services
             _users.DeleteOne(user => user.Id == id);
         }
     }
+    
 }

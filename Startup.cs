@@ -32,7 +32,8 @@ namespace UsersManagement
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseMvc();
+            app.UseMiddleware<AuthenticationMiddleware>();
+            app.UseMvc();            
             loadData.OnGet();
         }
     }

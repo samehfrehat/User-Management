@@ -17,8 +17,7 @@ namespace UsersManagement.Services
         {
             var client = new MongoClient(config.GetConnectionString("UsersManagementDb"));
             var database = client.GetDatabase("UsersManagementDb");
-            _users = database.GetCollection<User>("Users");
-           
+            _users = database.GetCollection<User>("Users");           
         }
         
         public async Task insertManyUsersAsync(IEnumerable<User> users)

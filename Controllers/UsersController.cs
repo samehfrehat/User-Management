@@ -11,13 +11,13 @@ namespace UsersManagement.Controllers
     {
         //create the  user service 
         private readonly UserService _userService;
-        
+
         //initialize the _userService within constructor  
         public UsersController(UserService userService)
         {
-            _userService = userService;            
+            _userService = userService;
         }
-        
+
         [HttpGet] //returns all the users /api/users
         public ActionResult<List<User>> Get()
         {
@@ -76,5 +76,15 @@ namespace UsersManagement.Controllers
             return NoContent();
         }
 
+        [HttpPost("search")] //returns all the users matching any of search terms /api/users
+        public ActionResult<List<User>> Search(User userSearch)
+        {
+            var users = _userService.search(userSearch);
+            if(users.Count < 1)
+            {
+                return NotFound();
+            }
+            return users;
+        }
     }
 }

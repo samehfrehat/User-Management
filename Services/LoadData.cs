@@ -22,26 +22,34 @@ namespace UsersManagement.Services
 
         public async Task OnGet()
         {
-            var request = new HttpRequestMessage(HttpMethod.Get,
-                        "https://jsonplaceholder.typicode.com/users");
-            request.Headers.Add("Accept", "application/vnd.github.v3+json");
-            request.Headers.Add("User-Agent", "HttpClientFactory-Sample");
-
-            var client = _clientFactory.CreateClient();
-
-            var response = await client.SendAsync(request);
-
-            if (response.IsSuccessStatusCode)
+            if (_userService.checkEmpty())
             {
-                users = await response.Content
-                    .ReadAsAsync<IEnumerable<User>>();
-                _userService.insertManyUsers(users);
+                var request = new HttpRequestMessage(HttpMethod.Get,
+                        "https://jsonplaceholder.typicode.com/users");
+                request.Headers.Add("Accept", "application/vnd.github.v3+json");
+                request.Headers.Add("User-Agent", "HttpClientFactory-Sample");
+
+                var client = _clientFactory.CreateClient();
+
+                var response = await client.SendAsync(request);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    users = await response.Content
+                        .ReadAsAsync<IEnumerable<User>>();
+                    await _userService.insertManyUsersAsync(users);
+                }
+                else
+                {
+                    GetUsersError = true;
+                    users = Array.Empty<User>();
+                }
             }
             else
             {
-                GetUsersError = true;
-                users = Array.Empty<User>();
+                return;
             }
+            
         }
 
     }

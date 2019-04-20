@@ -1,8 +1,10 @@
 ﻿using Microsoft.Extensions.Configuration;
 using MongoDB.Driver;
+using MongoDB.Driver.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using UsersManagement.Models;
 
 namespace UsersManagement.Services
@@ -19,16 +21,38 @@ namespace UsersManagement.Services
            
         }
         
-        public void insertManyUsers(IEnumerable<User> users)
+        public async Task insertManyUsersAsync(IEnumerable<User> users)
         {
             try
             {
-                _users.InsertManyAsync(users);
+               await _users.InsertManyAsync(users);
             }
             catch(Exception e)
             {
                 throw e;
             }
+        }
+
+        public bool checkEmpty()
+        {
+            if(_users.Find(user => true).FirstOrDefault() == null)
+            return true;
+            return false;
+        }
+
+        public List<User> search(User userIn)
+        {
+            List<User> foundUsers = new List<User>();
+            var query = (from e in _users.AsQueryable<User>()
+                        where 
+                           e.name == userIn.name || e.username == userIn.username
+                        || e.address.zipcode == userIn.address.zipcode || e.company.name == userIn.company.name
+                        select e);
+            foreach(User u in query)
+            {                
+                foundUsers.Add(u);
+            }
+            return foundUsers;
         }
 
         public List<User> Get()

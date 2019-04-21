@@ -28,14 +28,13 @@ namespace UsersManagement
                    {
                        c.SwaggerDoc("v1", new Info
                        { Title = "User-Management Core 2.2 API's", Description = "This is to expost this API's using Swagger" });
-                       c.AddSecurityDefinition("basic", new BasicAuthScheme { Type = "basic" });
-                       
+                       c.AddSecurityDefinition("basic", new BasicAuthScheme { Type = "basic" });   
                    }
             );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env,LoadData loadData)
+        public async void Configure(IApplicationBuilder app, IHostingEnvironment env,LoadData loadData)
         {
             if (env.IsDevelopment())
             {
@@ -49,7 +48,7 @@ namespace UsersManagement
             });
             app.UseMiddleware<AuthenticationMiddleware>();
             app.UseMvc();
-            loadData.OnGet();
+            await loadData.OnGet();
         }
     }
 }

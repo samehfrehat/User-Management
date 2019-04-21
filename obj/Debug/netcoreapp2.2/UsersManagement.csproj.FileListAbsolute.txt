@@ -11,4 +11,3 @@ C:\Users\Sameh\source\repos\UsersManagement\UsersManagement\obj\Debug\netcoreapp
 C:\Users\Sameh\source\repos\UsersManagement\UsersManagement\obj\Debug\netcoreapp2.2\UsersManagement.RazorTargetAssemblyInfo.cache
 C:\Users\Sameh\source\repos\UsersManagement\UsersManagement\obj\Debug\netcoreapp2.2\UsersManagement.dll
 C:\Users\Sameh\source\repos\UsersManagement\UsersManagement\obj\Debug\netcoreapp2.2\UsersManagement.pdb
-C:\Users\Sameh\source\repos\UsersManagement\UsersManagement\obj\Debug\netcoreapp2.2\UsersManagement.csprojAssemblyReference.cache
